@@ -1,0 +1,50 @@
+<html>
+
+<head>
+    <title> Slam Book</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="container-fluid">
+
+    <div id="header">
+        <h1 class="text-center display-3" onclick="window.open('/','_self');">Slam Book</h1>
+    </div>
+    <hr style="height: 5px; border-top: 2px dotted white;">
+
+    <div class="ad"></div>
+    <div class="text-center">
+        <div id="signupform" class="font-weight-bold ">
+            <hr style="height: 5px; border-top: 2px dotted white;">
+            <p class="text-center">Create your own Slam Book.</p>
+            <hr style="height: 5px; border-top: 2px dotted white;">
+            <p style="color:red;"><%= er %></p>
+            <form action="/signupcomplete" class="form-group" method="POST">
+
+                <label for="">Name</label>
+                <input type="name" class="form-control" name="signname">
+
+                <label for="">EmailID</label>
+                <input type="email" class="form-control" name="signemail">
+
+                <label for="">Password</label>
+                <input type="password" class="form-control" name="signpassword">
+                <br>
+                <button class="btn-primary" type="submit">Signup</button>
+            </form>
+
+        </div>
+    </div>
+    <div class="ad"></div>
+
+    <div class="text-center font-weight-bolder"
+        style="margin-bottom: 3%;  position: fixe; bottom: 0; width: 100%; text-align: center;">
+        <hr style="height: 5px; border-top: 2px solid white;">
+        The Slam Book <sup>&copy;</sup> 2020
+    </div>
+</body>
+
+
+</html>

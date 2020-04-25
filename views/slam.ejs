@@ -1,0 +1,65 @@
+<html>
+
+<head>
+    <title> Slam Book</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="container-fluid">
+
+    <div id="header">
+        <h1 class="text-center display-3">Slam Book</h1>
+    </div>
+    <div id="main" class="font-weight-bold">
+        <hr style="height: 5px; border-top: 2px dotted white;">
+        Fill Out <span class="display-4" style="color: yellow;"> <%= name %>'s </span> Slam Book.
+        <hr style="height: 5px; border-top: 2px dotted white;">
+        
+        <form action="/submit" class="form-group" method="POST">
+            <input type="text" value="<%= id %>" name="url" hidden>
+            <label for="">Name</label>
+            <input type="text" class="form-control" name="name">
+
+            <label for="">You like to call me</label>
+            <input type="text" class="form-control" name="nickname">
+        
+            <label for="">Email</label>
+            <input type="email" class="form-control" name="email">
+
+            <div class="ad"></div>
+
+            <label for="">Contact Number</label>
+            <input type="text" class="form-control" name="phone">
+
+            <label for="">Define Our Friendship</label>
+            <input type="text" class="form-control" name="defineus">
+
+            <label for="">If you could go back and chang a moment what would it be </label>
+            <input type="text" class="form-control" name="moment">
+            
+            <div class="ad"></div>
+
+            <label for="">Your idea of chilling out.</label>
+            <input type="text" class="form-control" name="chill">
+
+            <label for="">Describe me in your words</label>
+            <input type="text" class="form-control" name="defineme">
+
+            <label for="">Advice For me</label>
+            <textarea type="text" class="form-control" rows="3" name="advice"></textarea>
+            <hr style="height: 5px; border-top: 2px dotted white;">
+            <button class="btn-primary">Send</button>
+        </form>
+        <div class="ad"></div>
+    </div>
+    <br>
+    <hr style="height: 5px; border-top: 2px solid white;">
+    
+    <div class="display-5 text-center">
+        The Slam Book 2020 <sup>&copy;</sup>
+    </div>
+</body>
+
+</html>

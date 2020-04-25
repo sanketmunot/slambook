@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <title> Slam Book</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="container-fluid">
+
+    <div id="header">
+        <h1 class="text-center display-3" onclick="window.open('/','_self');">Slam Book</h1>
+    </div>
+    <hr style="height: 5px; border-top: 2px dotted white;">
+
+    <% 
+    var email = data[0]['_id'];
+    var name = data[0]['name'];
+    var id = data[0]['url'];
+    var slam = data[0]['slam'];
+    %>
+    <p id="t" hidden><%= id %>&name=<%= name %></p>
+    <div class="text-center h5" id="copy" >
+        <br>
+        <button onclick="copy()" class="btn btn-primary" id="copybtn">Copy</button>
+        <br><br>
+        <p class="text-center" style="font-size: small;" id="header">Share Copied Link With Your Friends</p>
+    </div>
+
+
+    <div class="text-center font-weight-bolder"
+        style="margin-bottom: 3%;  position: fixed; bottom: 0; width: 100%; text-align: center;">
+        <hr style="height: 5px; border-top: 2px solid white;">
+        The Slam Book <sup>&copy;</sup> 2020
+    </div>
+
+</body>
+
+<script type="text/javascript">
+    function copy() {
+        
+        var SLAM_URL = 'localhost:8080/slambook?id='
+        const el = document.createElement('textarea');
+        var x = SLAM_URL + document.getElementById('t').innerHTML;
+        el.value = x.replace('&amp;','&');
+
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+        document.getElementById('copybtn').style.backgroundColor='green';
+    };
+</script>
+
+</html>

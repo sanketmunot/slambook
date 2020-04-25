@@ -1,0 +1,81 @@
+
+body{
+    background-color: #e66969;
+}
+
+#header{
+    color:white;
+}
+#main{
+    background-color : #000000;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: x-large;
+    color: #5dd1ba;
+    padding: 2% 25%;
+}
+
+.form-control{
+    margin-bottom: 4%;
+}
+
+/* .ad{
+    height: 20%;
+} */
+
+#signupform ,#loginform,#login,#signup{
+    background-color : #e66969;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: x-large;
+    color: #5dd1ba;
+    padding: 2% 5%;
+    margin:2%;
+    display: inline-block;
+}
+
+#signupform ,#loginform{
+    width: 50%;
+    background-color : #000000;
+    padding: 2%;
+}
+
+#copy{
+    background-color : #000000;
+    padding: 2%;
+}
+
+h1{
+    cursor: pointer;
+    user-select: none;
+}
+
+#copybtn{
+    width: 20%;
+    font-size: xx-large;
+}
+
+
+@media only screen and (max-width: 600px) {
+    #main, #signupform, #loginform{
+        padding : 2%;
+        margin:0%;
+    }
+
+    .col-md-12{
+        width: 45%;
+    }
+
+    #signup,#login{
+        background-color: #000000;
+    }
+    #signupform ,#loginform, #copy{
+        width: 100%;
+    }
+
+    #copybtn{
+        width: 60%;
+    }
+  }
+  
+
+
+

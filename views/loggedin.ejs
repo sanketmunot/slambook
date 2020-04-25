@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body class="container-fluid">
@@ -21,16 +23,38 @@
     var slam = data[0]['slam'];
     %>
     <p id="t" hidden><%= id %>&name=<%= name %></p>
-    <div class="text-center h5" id="copy" >
+    <p id="book" hidden><%= slam %></p>
+
+    <div class="text-center h5" id="copy">
         <br>
         <button onclick="copy()" class="btn btn-primary" id="copybtn">Copy</button>
         <br><br>
         <p class="text-center" style="font-size: small;" id="header">Share Copied Link With Your Friends</p>
     </div>
 
+    <div class="text-center">
 
+        <% for(var i = 0; i<slam['name'].length; i++){ %>
+
+        <button type="button" class="collapsible text-center btn"><%= slam['name'][i]  %>
+        </button>
+        <div class="content">
+            <p>Nickname = <%= slam['nickname'][i]  %></p>
+            <p>Email = <%= slam['email'][i]  %></p>
+            <p>Phone = <%= slam['phone'][i]  %></p>
+            <p>Define Our Friendship = <%= slam['defineus'][i]  %></p>
+            <p>If you could go back and chang a moment what would it be = <%= slam['moment'][i]  %></p>
+            <p>Your idea of chilling out = <%= slam['chill'][i]  %></p>
+            <p>Describe me in your words =  <%= slam['defineme'][i]  %></p>
+            <p>Advice For me = <%= slam['advice'][i]  %></p>
+        </div>
+        <br><br>
+        <% } %>
+
+    </div>
+    <br><br><br><br><br><br><br>
     <div class="text-center font-weight-bolder"
-        style="margin-bottom: 3%;  position: fixed; bottom: 0; width: 100%; text-align: center;">
+        style="margin-bottom: 3%;  position: fixe; bottom: 0; width: 100%; text-align: center;">
         <hr style="height: 5px; border-top: 2px solid white;">
         The Slam Book <sup>&copy;</sup> 2020
     </div>
@@ -39,18 +63,38 @@
 
 <script type="text/javascript">
     function copy() {
-        
+
         var SLAM_URL = 'localhost:8080/slambook?id='
         const el = document.createElement('textarea');
         var x = SLAM_URL + document.getElementById('t').innerHTML;
-        el.value = x.replace('&amp;','&');
+        el.value = x.replace('&amp;', '&');
 
         document.body.appendChild(el);
         el.select();
         document.execCommand('copy');
         document.body.removeChild(el);
-        document.getElementById('copybtn').style.backgroundColor='green';
+        document.getElementById('copybtn').style.backgroundColor = 'green';
     };
+
+    function temp() {
+
+    }
+
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+    var colors=['yellow','green','powderblue','red']
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+        coll[i].style.backgroundColor=colors[i%4]
+    }
 </script>
 
 </html>

@@ -45,7 +45,6 @@ var schema = new mongoose.Schema({
 var userModel = mongoose.model('SlamBook', schema);
 
 app.post('/signupcomplete', function (req, res) {
-    // mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
     var email = req.body.signemail;
     var pass = req.body.signpassword;
     var name = req.body.signname;
@@ -54,12 +53,10 @@ app.post('/signupcomplete', function (req, res) {
 
     user.save(function (err, data) {
         if (err) {
-            // mongoose.connection.close()
             res.render("signup", { er: '*Email Already Exist' });
         }
         else {
-            // mongoose.connection.close()
-            res.render('loginform');
+            res.render('loginform',{er:""});
             // res.send(data)
         }
     })
@@ -68,7 +65,6 @@ app.post('/signupcomplete', function (req, res) {
 
 
 app.post('/login', function (req, res) {
-    // mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
     var email = req.body.email;
     var pass = req.body.password;
     userModel.find({ "_id": email }, function (err, data) {
@@ -89,20 +85,6 @@ app.post('/login', function (req, res) {
     })
 })
 
-
-// app.get('/loggedin',function(req,res){
-//     var data= [
-//         {
-//           _id: 'aa@g.com',
-//           password: 'a',
-//           name: 's',
-//           url: '5ea2f16eb3c8923268019ba4',
-//           slam: [],
-//           __v: 0
-//         }
-//       ]
-//     res.render('loggedin',{data:data})
-// })
 
 
 app.get('/slambook', function (req, res) {
@@ -140,7 +122,7 @@ app.post('/submit',function(req,res){
         if (err) {
             res.send('err');
         }
-        res.send(data);
+        res.render('index')
     });
 //     mongoose.connection.close()
 })
